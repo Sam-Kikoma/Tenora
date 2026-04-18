@@ -10,27 +10,48 @@
 	align-items: center;
 	justify-content: center;
 	pointer-events: none;
+	overflow: hidden;
+}
+
+.textWrapper {
+	/* This clip-path acts like overflow: hidden but without box-model constraints */
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+	padding: 1rem; /* Allows blur spillover */
 }
 
 .text {
 	font-family: var(--font-display);
-	font-size: clamp(2rem, 5vw, 3.5rem);
+	font-size: clamp(3rem, 12vw, 9rem);
 	font-weight: 300;
 	color: var(--parchment);
-	letter-spacing: 0.1em;
-	opacity: 0;
-	transform: translateY(20px);
+	letter-spacing: 0.15em;
+	opacity: 1; /* Reset initially, controlled by GSAP */
+	transform: translateY(0); /* Reset initially, controlled by GSAP */
+	will-change: transform, opacity, filter;
 }
 
-.highlight {
-	font-style: italic;
+.counter {
+	position: absolute;
+	bottom: 3rem;
+	right: 4rem;
+	font-family: var(--font-body);
+	font-size: 1.1rem;
 	color: var(--copper-light);
+	display: flex;
+	align-items: flex-end;
+	gap: 0.2rem;
+	will-change: opacity, transform;
 }
 
-.dot {
-	color: var(--copper-dim);
-	font-size: 0.6em;
-	position: relative;
-	top: -0.2em;
-	margin: 0 0.2em;
+.percent {
+	font-size: 0.7em;
+	margin-bottom: 0.2em;
+	opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+	.counter {
+		bottom: 2.5rem;
+		right: 2rem;
+	}
 }
