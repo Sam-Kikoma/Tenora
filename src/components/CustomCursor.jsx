@@ -30,12 +30,12 @@ export default function CustomCursor({ isDesktop = true }) {
 				e.target.closest("[role='button']") ||
 				e.target.style.cursor === "pointer"
 			) {
-				gsap.to(dot, { scale: 3.5, backgroundColor: "var(--color-accent-light)", opacity: 0.4, duration: 0.2 });
+				gsap.to(dot, { scale: 3.5, backgroundColor: "rgba(0, 0, 0, 0.1)", opacity: 1, duration: 0.2 });
 			}
 		};
 
 		const handleMouseOut = () => {
-			gsap.to(dot, { scale: 1, backgroundColor: "var(--color-accent)", opacity: 0.8, duration: 0.2 });
+			gsap.to(dot, { scale: 1, backgroundColor: "#000", opacity: 0.8, duration: 0.2 });
 		};
 
 		window.addEventListener("mouseover", handleMouseOver);
