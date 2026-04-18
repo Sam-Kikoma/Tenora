@@ -1,0 +1,135 @@
+.section {
+  padding: 6rem 2rem;
+}
+
+.inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.sectionRule {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 1.5rem auto 0;
+}
+
+.partDivider {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 3.5rem 0 2.5rem;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--divider));
+}
+
+.dividerLineRev {
+  background: linear-gradient(to left, transparent, var(--divider));
+}
+
+.dividerLabel {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.interlude {
+  background: linear-gradient(135deg, var(--parchment-dk), var(--parchment));
+  border: 1px solid var(--divider);
+  padding: 2rem 2.5rem;
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.interludeLabel {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.interludePianist {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.interludePieces {
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.dot {
+  font-style: normal;
+  color: var(--gold);
+  padding: 0 0.25rem;
+}
+
+.interludeNote {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  font-style: italic;
+  margin-top: 0.75rem;
+}
+
+.reflection {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom, transparent, rgba(180,120,90,0.08), transparent);
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+  margin: 2.5rem 0 0;
+}
+
+.reflection p {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.95;
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 4rem 1.5rem;
+  }
+  .interlude {
+    padding: 1.5rem 1.25rem;
+  }
+}

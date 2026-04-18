@@ -1,0 +1,42 @@
+.footer {
+	text-align: center;
+	padding: 5rem 2rem 4rem;
+	border-top: 1px solid var(--divider);
+	background: var(--parchment);
+}
+
+.logo {
+	width: clamp(160px, 30vw, 240px);
+	height: auto;
+	margin-bottom: 1.5rem;
+}
+
+.logoReveal {
+	mix-blend-mode: multiply;
+	filter: contrast(1.05) saturate(1.1);
+}
+
+.location {
+	font-family: var(--font-display);
+	font-size: 12px;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: var(--ink-faint);
+	margin-bottom: 2rem;
+}
+
+.thanks {
+	font-size: 0.875rem;
+	color: var(--ink-faint);
+	font-style: italic;
+	max-width: 520px;
+	margin: 0 auto 3rem;
+	line-height: 1.8;
+}
+
+.ornament {
+	width: 70px;
+	height: 1px;
+	background: linear-gradient(to right, transparent, var(--copper), transparent);
+	margin: 0 auto;
+}
