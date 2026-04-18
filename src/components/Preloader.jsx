@@ -55,7 +55,7 @@ export default function Preloader({ onComplete }) {
 		<div ref={containerRef} className={styles.preloader}>
 			<div className={styles.textWrapper}>
 				<div ref={textRef} className={`${styles.text} preloader-text`}>
-					WELCOME
+					TENORA CHORALE
 				</div>
 			</div>
 			<div className={`${styles.counter} preloader-counter-container`}>
