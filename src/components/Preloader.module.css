@@ -14,20 +14,23 @@
 }
 
 .textWrapper {
-	/* This clip-path acts like overflow: hidden but without box-model constraints */
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-	padding: 1rem; /* Allows blur spillover */
+	padding: 1rem;
+	width: 100%;
+	text-align: center;
 }
 
 .text {
 	font-family: var(--font-display);
-	font-size: clamp(3rem, 12vw, 9rem);
+	font-size: clamp(1.8rem, 8vw, 9rem);
 	font-weight: 300;
 	color: var(--parchment);
 	letter-spacing: 0.15em;
-	opacity: 1; /* Reset initially, controlled by GSAP */
-	transform: translateY(0); /* Reset initially, controlled by GSAP */
+	opacity: 1;
+	transform: translateY(0);
 	will-change: transform, opacity, filter;
+	line-height: 1.2;
+	margin-right: -0.15em;
 }
 
 .counter {

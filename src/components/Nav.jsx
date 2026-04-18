@@ -45,9 +45,9 @@ export default function Nav() {
 
 	return (
 		<nav ref={navRef} className={styles.nav} aria-label="Site navigation">
-			<div className={styles.brandWrapper}>
+			<button className={styles.brandWrapper} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
 				<img src="/logo.png" alt="Tenora Chorale" className={styles.navLogo} />
-			</div>
+			</button>
 			<ul className={styles.links}>
 				<li>
 					<button onClick={() => scrollTo("programme")}>Programme</button>

@@ -5,7 +5,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 
 import Preloader from "./components/Preloader";
-import CustomCursor from "./components/CustomCursor";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Programme from "./components/Programme";
@@ -47,7 +46,6 @@ export default function App() {
 	return (
 		<>
 			{isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
-			<CustomCursor isDesktop={typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches} />
 
 			<Nav />
 
