@@ -8,25 +8,66 @@ export default function Hero({ info }) {
 
 	useGSAP(
 		() => {
-			const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+			const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
-			tl.fromTo(".hero-logo", { opacity: 0, scale: 0.88 }, { opacity: 1, scale: 1, duration: 1.1 }, 0.2)
-				.fromTo(".hero-ornament", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 1.2 }, 0.5)
-				.fromTo(".hero-presents", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7 }, 0.8)
-				.fromTo(".hero-title", { opacity: 0, y: 48 }, { opacity: 1, y: 0, duration: 1.1 }, 1.05)
-				.fromTo(".hero-theme", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 1.65)
-				.fromTo(".hero-tagline", { opacity: 0, y: 14 }, { opacity: 0.8, y: 0, duration: 0.6 }, 1.95)
-				.fromTo(".hero-meta", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 2.2)
-				.fromTo(".hero-rule", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.8 }, 2.65)
-				.fromTo(".hero-quote", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9 }, 2.85)
-				.fromTo(".hero-scroll", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 3.7);
+			tl.fromTo(
+				".hero-logo",
+				{ opacity: 0, scale: 0.88, filter: "blur(20px)" },
+				{ opacity: 1, scale: 1, filter: "blur(0px)", duration: 1.8 },
+				0.2,
+			)
+				.fromTo(
+					".hero-ornament",
+					{ opacity: 0, scaleX: 0 },
+					{ opacity: 1, scaleX: 1, duration: 1.5, ease: "power4.inOut" },
+					0.5,
+				)
+				.fromTo(
+					".hero-presents",
+					{ opacity: 0, y: 24, letterSpacing: "1em" },
+					{ opacity: 1, y: 0, letterSpacing: "0.45em", duration: 1.2 },
+					0.8,
+				)
+				.fromTo(".hero-title", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }, 1.05)
+				.fromTo(".hero-theme", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.2 }, 1.4)
+				.fromTo(".hero-tagline", { opacity: 0, y: 20 }, { opacity: 0.8, y: 0, duration: 1.2 }, 1.6)
+				.fromTo(".hero-meta", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.2 }, 1.8)
+				.fromTo(
+					".hero-rule",
+					{ opacity: 0, scaleX: 0 },
+					{ opacity: 1, scaleX: 1, duration: 1.2, ease: "power4.inOut" },
+					2.0,
+				)
+				.fromTo(".hero-quote", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1.2 }, 2.2)
+				.fromTo(".hero-scroll", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 1.2 }, 2.5);
+
+			gsap.to(".hero-bg-parallax", {
+				yPercent: 30,
+				ease: "none",
+				scrollTrigger: {
+					trigger: heroRef.current,
+					start: "top top",
+					end: "bottom top",
+					scrub: true,
+				},
+			});
+			gsap.to(".hero-title", {
+				yPercent: -30,
+				ease: "none",
+				scrollTrigger: {
+					trigger: heroRef.current,
+					start: "top top",
+					end: "bottom top",
+					scrub: true,
+				},
+			});
 		},
 		{ scope: heroRef },
 	);
 
 	return (
 		<section ref={heroRef} className={styles.hero} aria-labelledby="hero-title">
-			<div className={styles.heroBg} aria-hidden="true" />
+			<div className={`${styles.heroBg} hero-bg-parallax`} aria-hidden="true" style={{ height: "120%", top: "-10%" }} />
 
 			<img
 				src="/logo.png"
@@ -38,9 +79,8 @@ export default function Hero({ info }) {
 			<p className={`${styles.presents} hero-presents`}>Presents</p>
 
 			<h1 id="hero-title" className={`${styles.title} hero-title`}>
-				Hope · Resilience
-				<br />
-				<em>Connection</em>
+				<span>Hope</span> <span className={styles.dot}>·</span> <em>Resilience</em>{" "}
+				<span className={styles.dot}>·</span> <span>Connection</span>
 			</h1>
 
 			<p className={`${styles.theme} hero-theme`}>{info.subtitle}</p>

@@ -1,0 +1,19 @@
+.dot {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 16px;
+	height: 16px;
+	background-color: var(--color-accent);
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: 10000;
+	opacity: 0.8;
+	mix-blend-mode: multiply;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	:global(*) {
+		cursor: none !important;
+	}
+}

@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import styles from "./Nav.module.css";
+import Lenis from "lenis";
 
 export default function Nav() {
 	const navRef = useRef(null);
@@ -10,9 +11,26 @@ export default function Nav() {
 		() => {
 			gsap.fromTo(
 				navRef.current,
-				{ opacity: 0, y: -20 },
-				{ opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.2 },
+				{ opacity: 0, y: -20, filter: "blur(10px)" },
+				{ opacity: 1, y: 0, filter: "blur(0px)", duration: 1.2, ease: "power3.out", delay: 0.5 },
 			);
+
+			const buttons = document.querySelectorAll(`.${styles.links} button`);
+			buttons.forEach((btn) => {
+				btn.addEventListener("mousemove", (e) => {
+					const rect = btn.getBoundingClientRect();
+					const h = rect.width / 2;
+					const v = rect.height / 2;
+					const x = e.clientX - rect.left - h;
+					const y = e.clientY - rect.top - v;
+
+					gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.4, ease: "power2.out" });
+				});
+
+				btn.addEventListener("mouseleave", () => {
+					gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.3)" });
+				});
+			});
 		},
 		{ scope: navRef },
 	);
@@ -20,7 +38,7 @@ export default function Nav() {
 	const scrollTo = (id) => {
 		const el = document.getElementById(id);
 		if (el) {
-			const top = el.getBoundingClientRect().top + window.scrollY - 64;
+			const top = el.getBoundingClientRect().top + window.scrollY;
 			window.scrollTo({ top, behavior: "smooth" });
 		}
 	};

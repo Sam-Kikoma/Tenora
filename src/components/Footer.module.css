@@ -1,8 +1,11 @@
 .footer {
 	text-align: center;
 	padding: 5rem 2rem 4rem;
-	border-top: 1px solid var(--divider);
-	background: var(--parchment);
+	background: var(--bark-deep);
+	position: sticky;
+	bottom: 0;
+	z-index: 0;
+	min-height: 40vh;
 }
 
 .logo {
@@ -12,8 +15,8 @@
 }
 
 .logoReveal {
-	mix-blend-mode: multiply;
-	filter: contrast(1.05) saturate(1.1);
+	mix-blend-mode: screen;
+	filter: contrast(1.1) saturate(1.1) brightness(1.2);
 }
 
 .location {
@@ -21,13 +24,13 @@
 	font-size: 12px;
 	letter-spacing: 0.22em;
 	text-transform: uppercase;
-	color: var(--ink-faint);
+	color: var(--copper-light);
 	margin-bottom: 2rem;
 }
 
 .thanks {
 	font-size: 0.875rem;
-	color: var(--ink-faint);
+	color: var(--parchment-dk);
 	font-style: italic;
 	max-width: 520px;
 	margin: 0 auto 3rem;

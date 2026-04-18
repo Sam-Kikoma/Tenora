@@ -9,32 +9,24 @@
 }
 
 :root {
-	/* === Logo-extracted palette === */
-
-	/* Copper / sienna accent — from logo highlight */
 	--copper: #b4785a;
 	--copper-light: #d4a882;
 	--copper-dim: #8b5a3a;
 	--copper-faint: rgba(180, 120, 90, 0.15);
 
-	/* Deep bark browns — from logo body */
 	--bark: #4b2d0f;
 	--bark-deep: #2e1a06;
 	--bark-mid: #6b3e1e;
 
-	/* Warm parchment backgrounds */
 	--parchment: #f5ede0;
 	--parchment-dk: #eaddcc;
 
-	/* Body text tones */
 	--ink: #2e1a06;
 	--ink-muted: #5a3820;
 	--ink-faint: #8b6a4a;
 
-	/* Dividers */
 	--divider: rgba(180, 120, 90, 0.28);
 
-	/* Aliases so all components just work */
 	--gold: var(--copper);
 	--gold-light: var(--copper-light);
 	--gold-dim: var(--copper-dim);
@@ -47,8 +39,21 @@
 	--nav-h: 56px;
 }
 
-html {
-	scroll-behavior: smooth;
+html.lenis,
+html.lenis body {
+	height: auto;
+}
+.lenis.lenis-smooth {
+	scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+	overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+	pointer-events: none;
 }
 
 body {
