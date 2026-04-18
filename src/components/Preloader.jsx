@@ -36,9 +36,7 @@ export default function Preloader({ onComplete }) {
 
 	return (
 		<div ref={containerRef} className={styles.preloader}>
-			<div className={`${styles.text} preloader-text`}>
-				<img src="/logo.png" alt="Tenora Chorale" className={styles.logo} />
-			</div>
+			<div className={`${styles.text} preloader-text`}>WELCOME</div>
 		</div>
 	);
 }
